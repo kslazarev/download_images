@@ -24,7 +24,7 @@ module DownloadImages
     end
 
     def host_with link
-      uri.merge(link).to_s
+      uri.merge link
     end
   end
 end
