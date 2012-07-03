@@ -1,13 +1,13 @@
 module DownloadImages
   module Strategies
-    RETRIEVE_IMAGES = Proc.new do |url|
-      filename = url.path.split('/').last
+    extend DownloadImages::Helpers::Strategies
 
+    RETRIEVE_IMAGES = Proc.new do |url|
       begin
-        Logger.retrieve filename
-        {:filename => filename, :content => Net::HTTP.get(url)}
+        Logger.retrieve filename(url)
+        {:filename => filename(url), :content => Net::HTTP.get(url)}
       rescue
-        Logger.warning filename
+        Logger.warning filename(url)
       end
     end
   end

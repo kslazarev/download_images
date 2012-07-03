@@ -2,9 +2,11 @@ require 'net/http'
 require 'uri'
 require 'yaml'
 require 'thread'
+require 'zlib'
 
 require './download_images/logger'
 require './download_images/async_tasks'
+require './download_images/helpers'
 require './download_images/strategies'
 require './download_images/html_parser'
 
